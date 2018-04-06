@@ -1,0 +1,6 @@
+/tl_2012_us_state
+*.shp
+*.shx
+*.dbf
+*.prj
+*.shp.xml

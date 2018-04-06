@@ -1,19 +1,19 @@
 import osgeo.ogr
 
 shapeFile = osgeo.ogr.Open("tl_2012_us_state.shp")
-numLayers = shapeFile.GetLayerCount()
+qtdeCamadas = shapeFile.GetLayerCount()
 
-print ("Shapefile contains " + str(numLayers) + " layers.")
+print ("Shapefile contém " + str(qtdeCamadas) + " camadas.")
 
-for layerNum in range (numLayers):
-   layer = shapeFile.GetLayer(layerNum)
-   spatialRef = layer.GetSpatialRef().ExportToProj4()
-   numFeatures = layer.GetFeatureCount()
-   print("Layer " + str(layerNum) + " has spatial reference " + spatialRef)
-   print("Layer " + str(layerNum) + " has " + str(numFeatures) + " features:")
+for numeroCamada in range (qtdeCamadas):
+   camada = shapeFile.GetLayer(numeroCamada)
+   refEspacial = camada.GetSpatialRef().ExportToProj4()
+   qtdeFeicoes = camada.GetFeatureCount()
+   print("Camada " + str(numeroCamada) + " tem referência espacial " + refEspacial)
+   print("Camada " + str(numeroCamada) + " tem " + str(qtdeFeicoes) + " feições:")
    print
 
-   for featureNum in range (numFeatures):
-      feature = layer.GetFeature (featureNum)
-      featureName = feature.GetField("NAME")
-      print("Feature " + str(featureNum) + " has name " + featureName) 
+   for numeroFeicao in range (qtdeFeicoes):
+      feicao = camada.GetFeature(numeroFeicao)
+      nomeFeicao = feicao.GetField("NAME")
+      print("Feição " + str(numeroFeicao) + " tem nome " + nomeFeicao) 
